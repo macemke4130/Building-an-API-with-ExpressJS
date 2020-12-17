@@ -8,8 +8,7 @@ $.ajax({
     $.each(chirps, function (i, chirp) {
       if (chirp.user != undefined) {
         // Conditinal prevents the "nextid" object from outputting --
-        $chirps.append(`<li id = "chirp-${i}"><strong>@<span id="user-${i}">${chirp.user}</span> - </strong><span id="msg-${i}">${chirp.msg}</span> - 
-        <button onclick="destroyChirp(${i})">X</button><button onclick="openEditor(${i})">Edit</button></li>`);
+        script(i, chirp.user, chirp.msg);
       }
     });
   },
@@ -33,8 +32,9 @@ function postNewChirp() {
         url: "/api/chirps",
         data: newChirp,
         success: function (newChirp) {
-          $chirps.append(`<li id = "chirp-${nextId}"><strong>@<span id="user-${id}">${newChirp.details.user}</span> - </strong>${newChirp.details.msg} - 
-            <a href="#" onclick="destroyChirp(${nextId})">X</a></li>`);
+            script(nextId, newChirp.details.user, newChirp.details.msg);
+        //   $chirps.append(`<li id = "chirp-${nextId}"><strong>@<span id="user-${nextId}">${newChirp.details.user}</span> - </strong>${newChirp.details.msg} - 
+        //     <a href="#" onclick="destroyChirp(${nextId})">X</a></li>`);
         },
       });
     },
@@ -69,6 +69,19 @@ function closeEditor(id) {
 
     $('#edit-user').val("");
     $('#edit-msg').val("");
+}
+
+function script(id, user, msg) {
+    return(
+        $chirps.append(
+            `<li id = "chirp-${id}">
+                <strong>@<span id="user-${id}">${user}</span> - </strong>
+                <span id="msg-${id}">${msg}</span>
+                <button onclick="destroyChirp(${id})">X</button>
+                <button onclick="openEditor(${id})">Edit</button>
+            </li>
+            `)
+    )
 }
 
 function editChirp(){
