@@ -1,1 +1,7 @@
-{"0":{"user":"Dave","msg":"You wanna go out for a rip?!"},"1":{"user":"Ryan","msg":"What did you buy?"},"2":{"user":"Stephen","msg":"Did I get fired? Please?"},"3":{"user":"Satan","msg":"I'm new here. What's cool?"},"4":{"user":"Mace","msg":"Hi Satan!"},"nextid":5}
+{
+  "0": { "user": "Dave", "msg": "You wanna go out for a rip?!" },
+  "1": { "user": "Ryan", "msg": "What did you buy? Is it gross?" },
+  "2": { "user": "Stephen", "msg": "Did I get fired? Really?" },
+  "3": { "user": "Sarah", "msg": "I want Cheetos. Lots of them." },
+  "nextid": 4
+}

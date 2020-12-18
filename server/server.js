@@ -13,6 +13,6 @@ app.use(express.static('./client'));
 // Puts our api inside of an "/api" path --
 app.use('/api', apiRouter);
 
-// app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../client/404.html')));
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../client/index.html')));
 
 app.listen(3000, () => console.log("Server Running on http://localhost:3000/"));
